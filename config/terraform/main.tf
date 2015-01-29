@@ -37,7 +37,7 @@ resource "aws_instance" "ops_manager_web" {
   }
 
   instance_type = "m3.medium"
-  ami = "${lookup(var.aws_amis, var.aws_region)}"
+  ami = "${var.aws_ami_id}"
   key_name = "${var.key_name}"
   security_groups = ["${aws_security_group.ops_manager_security_group.name}"]
   associate_public_ip_address = true

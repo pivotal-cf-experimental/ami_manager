@@ -19,10 +19,8 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
-variable "aws_amis" {
-  default = {
-    us-east-1 = "ami-66b5f00e"
-  }
+variable "aws_ami_id" {
+  description = "Ops Manager AMI."
 }
 
 variable "aws_security_group_cidr_block" {
