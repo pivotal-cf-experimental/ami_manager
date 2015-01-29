@@ -26,10 +26,6 @@ module AmiManager
 
     private
 
-    def plan
-      `terraform plan #{CONFIG_DIR}`
-    end
-
     def vars_to_string(vars)
       vars.empty? ? nil : vars.map { |k,v| "-var '#{k}=#{v}'"}.join(' ')
     end

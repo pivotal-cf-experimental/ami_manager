@@ -8,7 +8,7 @@ module AmiManager
 
     describe 'configuration' do
       it 'invokes the terraform CLI with the correct config dir' do
-        terraform_output = terraform.send(:plan)
+        terraform_output = `terraform plan #{config_dir}`
 
         expect($?.exitstatus).to eq(1)
         expect(terraform_output).not_to match(/No Terraform configuration files found/)
