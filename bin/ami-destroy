@@ -2,7 +2,7 @@
 
 require 'ami_manager/destroyer'
 
-if __FILE__ ==  $0
+if __FILE__ == $0
   %w(
     AWS_AMI_ID
     AWS_ACCESS_KEY
@@ -19,5 +19,5 @@ if __FILE__ ==  $0
     aws_secret_key: ENV['AWS_SECRET_KEY'],
     ssh_key_name: ENV['SSH_KEY_NAME'],
     ssh_key_path: ENV['SSH_KEY_PATH'],
-    )
+  )
 end
