@@ -1,12 +1,7 @@
-require 'logger'
-
 module AmiManager
   class Deployer
-    def initialize(logger)
-      @logger = logger
-    end
-
-    def deploy(aws_ami_id:, aws_access_key:, aws_secret_key:, ssh_key_path:, ssh_key_name:)
+    def deploy(ami_file, aws_access_key:, aws_secret_key:, ssh_key_path:, ssh_key_name:)
+      aws_ami_id = File.read ami_file
       terraform.apply(
         {
           aws_ami_id: aws_ami_id,
@@ -19,8 +14,6 @@ module AmiManager
     end
 
     private
-
-    attr_reader :logger
 
     def terraform
       AmiManager::Terraform.new

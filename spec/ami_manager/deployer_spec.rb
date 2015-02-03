@@ -1,12 +1,13 @@
 require 'spec_helper'
-require 'ami_manager/deployer'
-require 'ami_manager/terraform'
+require 'tempfile'
 
 describe AmiManager::Deployer do
   describe '#deploy' do
-    let(:logger) { instance_double(Logger) }
-    let(:ami_manager_deployer) { AmiManager::Deployer.new(logger) }
+    let(:ami_manager_deployer) { AmiManager::Deployer.new }
+
     let(:terraform) { instance_double(AmiManager::Terraform) }
+    let(:ami_file) { Tempfile.open('ami') { |file| file.write('an-ami-id'); file } }
+    let(:ami_file_path) { ami_file.path }
 
     before { allow(AmiManager::Terraform).to receive(:new).and_return(terraform) }
 
@@ -21,12 +22,12 @@ describe AmiManager::Deployer do
           }
         )
 
-      ami_manager_deployer.deploy(
-        aws_ami_id: 'an-ami-id',
-        aws_access_key: 'an-access-key',
-        aws_secret_key: 'a-secret-key',
-        ssh_key_name: 'a-key-name',
-        ssh_key_path: 'a-key-path',
+      ami_manager_deployer.deploy(ami_file_path, {
+          aws_access_key: 'an-access-key',
+          aws_secret_key: 'a-secret-key',
+          ssh_key_name: 'a-key-name',
+          ssh_key_path: 'a-key-path'
+        }
       )
     end
   end

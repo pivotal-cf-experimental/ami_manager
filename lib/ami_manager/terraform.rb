@@ -1,5 +1,3 @@
-require 'ami_manager'
-
 module AmiManager
   class Terraform
     CONFIG_DIR = File.join(AmiManager::ROOT, 'config', 'terraform')
@@ -27,7 +25,7 @@ module AmiManager
     private
 
     def vars_to_string(vars)
-      vars.empty? ? nil : vars.map { |k,v| "-var '#{k}=#{v}'"}.join(' ')
+      vars.empty? ? nil : vars.map { |k, v| "-var '#{k}=#{v}'" }.join(' ')
     end
   end
 end

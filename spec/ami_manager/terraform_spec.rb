@@ -1,4 +1,3 @@
-require 'ami_manager/terraform'
 require 'spec_helper'
 
 module AmiManager
@@ -18,7 +17,7 @@ module AmiManager
 
     describe '#apply' do
       context 'with vars' do
-        let(:vars) { {some: 'var', another: 'var'} }
+        let(:vars) { { some: 'var', another: 'var' } }
 
         it 'invokes `terraform apply` with the args as vars' do
           expect(terraform).to receive(:system).
@@ -41,7 +40,7 @@ module AmiManager
 
     describe '#force_destroy' do
       context 'with vars' do
-        let(:vars) { {some: 'var', another: 'var'} }
+        let(:vars) { { some: 'var', another: 'var' } }
 
         it 'invokes `terraform destroy -force` with the args as vars' do
           expect(terraform).to receive(:system).
