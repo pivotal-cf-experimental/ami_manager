@@ -1,7 +1,7 @@
 module AmiManager
   class Deployer
     def deploy(ami_file, aws_access_key:, aws_secret_key:, ssh_key_name:)
-      aws_ami_id = File.read ami_file
+      aws_ami_id = File.read(ami_file).strip
       terraform.apply(
         {
           aws_ami_id: aws_ami_id,
