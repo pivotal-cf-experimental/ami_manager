@@ -31,11 +31,6 @@ resource "aws_security_group" "ops_manager_security_group" {
 }
 
 resource "aws_instance" "ops_manager_web" {
-  connection {
-    user = "ubuntu"
-    key_file = "${var.key_path}"
-  }
-
   instance_type = "m3.medium"
   ami = "${var.aws_ami_id}"
   key_name = "${var.key_name}"

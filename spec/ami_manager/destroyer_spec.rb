@@ -14,7 +14,6 @@ describe AmiManager::Destroyer do
             access_key: 'an-access-key',
             secret_key: 'a-secret-key',
             key_name: 'a-key-name',
-            key_path: 'a-key-path',
           }
         )
 
@@ -22,7 +21,6 @@ describe AmiManager::Destroyer do
         aws_access_key: 'an-access-key',
         aws_secret_key: 'a-secret-key',
         ssh_key_name: 'a-key-name',
-        ssh_key_path: 'a-key-path',
       )
     end
   end

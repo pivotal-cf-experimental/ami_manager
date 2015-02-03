@@ -1,6 +1,6 @@
 module AmiManager
   class Deployer
-    def deploy(ami_file, aws_access_key:, aws_secret_key:, ssh_key_path:, ssh_key_name:)
+    def deploy(ami_file, aws_access_key:, aws_secret_key:, ssh_key_name:)
       aws_ami_id = File.read ami_file
       terraform.apply(
         {
@@ -8,7 +8,6 @@ module AmiManager
           access_key: aws_access_key,
           secret_key: aws_secret_key,
           key_name: ssh_key_name,
-          key_path: ssh_key_path,
         }
       )
     end
