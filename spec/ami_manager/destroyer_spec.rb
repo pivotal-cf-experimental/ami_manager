@@ -14,6 +14,8 @@ describe AmiManager::Destroyer do
             access_key: 'an-access-key',
             secret_key: 'a-secret-key',
             key_name: 'a-key-name',
+            subnet_id: 'a-subnet-id',
+            security_group_id: 'a-security-group-id',
           }
         )
 
@@ -21,6 +23,8 @@ describe AmiManager::Destroyer do
         aws_access_key: 'an-access-key',
         aws_secret_key: 'a-secret-key',
         ssh_key_name: 'a-key-name',
+        subnet_id: 'a-subnet-id',
+        security_group_id: 'a-security-group-id',
       )
     end
   end

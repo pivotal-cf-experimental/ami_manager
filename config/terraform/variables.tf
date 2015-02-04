@@ -19,6 +19,10 @@ variable "aws_ami_id" {
   description = "Ops Manager AMI."
 }
 
-variable "aws_security_group_cidr_block" {
-  default = "0.0.0.0/0"
+variable "security_group_id" {
+  description = "Security Group ID"
+}
+
+variable "subnet_id" {
+  description = "VPC's Subnet ID"
 }
