@@ -12,6 +12,7 @@ module AmiManager
           security_group_id: security_group_id,
         }
       )
+      terraform.output('ops_manager_ip')
     end
 
     private
