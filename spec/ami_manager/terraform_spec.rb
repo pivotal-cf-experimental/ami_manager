@@ -38,6 +38,18 @@ module AmiManager
       end
     end
 
+    describe '#output' do
+      let(:variable) { 'some-variable' }
+
+      it 'invokes `terraform output` with the given variable' do
+        expect(terraform).to receive(:`).
+            with("terraform output #{variable} #{config_dir}").
+            and_return("some-value\n")
+
+        expect(terraform.output(variable)).to eq('some-value')
+      end
+    end
+
     describe '#force_destroy' do
       context 'with vars' do
         let(:vars) { { some: 'var', another: 'var' } }
