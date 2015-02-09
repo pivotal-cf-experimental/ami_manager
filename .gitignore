@@ -1,7 +1,4 @@
 .idea/
 Gemfile.lock
 
-config/terraform/terraform.tfstate*
-config/terraform/terraform.tfvars
-config/terraform/crash.log
-config/terraform/graph.png
+.DS_Store
