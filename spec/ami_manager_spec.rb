@@ -48,17 +48,7 @@ RSpec.describe AmiManager do
           security_group_ids: ['security-group-id'],
           subnet: aws_options.fetch(:public_subnet_id),
           private_ip_address: AmiManager::OPS_MANAGER_PRIVATE_IP,
-          instance_type: 'm3.medium',
-          block_device_mappings: [{
-                                      device_name: '/dev/sda1', # sda1 is root device
-                                      ebs: {
-                                          volume_type: 'gp2',
-                                          volume_size: 100, # 100 GiB
-                                          delete_on_termination: true
-                                      }
-                                  }],
-
-                     ).and_return(instance)
+          instance_type: 'm3.medium').and_return(instance)
 
       ami_manager.deploy(ami_file_path)
     end
